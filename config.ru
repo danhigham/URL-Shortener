@@ -7,7 +7,8 @@ Bundler.require(:default, ENV['RACK_ENV']) if defined?(Bundler)
 DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:default, {:adapter  => "redis"})
 
-# DataMapper.finalize
-
 require 'shorten'
+
+DataMapper.finalize
+
 run UrlShortener
